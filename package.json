@@ -4,7 +4,7 @@
   "description": "A simple twitch bot",
   "main": "index.js",
   "scripts": {
-    "start":"node server.js",
+    "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -12,5 +12,9 @@
     "url": "\u0016https://github.com/Deathpk/BotDazamiga"
   },
   "author": "MichelVersiani",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "tmi.js": "^1.8.3"
+  }
 }
