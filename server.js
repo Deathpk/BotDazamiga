@@ -1,11 +1,11 @@
 require('dotenv').config();
 const tmi = require('tmi.js');
+const ListOfCommands = require("./Commands/list-of-commands.js");
 
 const client = new tmi.Client({
     identity: {
-        //TODO : Fazer o .env com as credenciais.
         username: process.env.TWITCH_BOT_USERNAME,
-        password: process.env.TWITCH_BOT_USERNAME
+        password: process.env.TWITCH_OAUTH_TOKEN
     },
     channels: [ 'forgivenbr' ]
 });
@@ -13,5 +13,13 @@ const client = new tmi.Client({
 client.connect();
 
 client.on('message', (channel, tags, message, self) => {
-    console.log(`${tags['display-name']}: ${message}`);
+    if(self || !message.startsWith('!')) return;
+
+    const args = message.slice(1).split(' ');
+    const command = args.shift().toLowerCase();
+
+    if(command) {
+        const response = ListOfCommands(command);
+        client.say(channel, `${response}`);
+    }
 });
