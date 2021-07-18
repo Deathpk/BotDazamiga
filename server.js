@@ -12,6 +12,7 @@ const client = new tmi.Client({
 
 client.connect();
 
+
 client.on('message', (channel, tags, message, self) => {
     if(self || !message.startsWith('!')) return;
 
