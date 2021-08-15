@@ -6,10 +6,9 @@ const getCommandResponse = function (command) {
     ];
 
     const response = listOfCommands.find(element => (element.name === command));
-    if(response !== 'undefined'){
+    if(response !== undefined){
         return response.phrase + " " + response.value;
     }
-    return false;
 };
 
 module.exports = getCommandResponse;
