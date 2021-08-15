@@ -2,7 +2,7 @@ require('dotenv').config();
 const tmi = require('tmi.js');
 const ListOfCommands = require("./Commands/list-of-commands.js");
 const CommandsService = require("./Service/CommandsService.js");
-
+//eoq
 const client = new tmi.Client({
     identity: {
         username: process.env.TWITCH_BOT_USERNAME,
